@@ -3,13 +3,15 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { Ng2DragDropModule } from 'ng2-drag-drop';
 import { SensorIdCartComponent } from './sensor-id-cart/sensor-id-cart.component';
-import { SideNavComponent } from './side-nav/side-nav.component';
+import { LogWindowComponent } from './log-window/log-window.component';
+import { LogScreenComponent } from './log-screen/log-screen.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SensorIdCartComponent,
-    SideNavComponent,
+    LogWindowComponent,
+    LogScreenComponent,
   ],
   imports: [
     BrowserModule,

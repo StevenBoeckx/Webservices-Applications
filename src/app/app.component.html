@@ -2,25 +2,37 @@
 
 <div id="mySidenav" class="sidenav">
 
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">close tab &times;</a>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times;</a>
     <!--<a href="#">About</a>
      <a href="#">Services</a>
      <a href="#">Clients</a>
-     <a href="#">Contact</a> -->
-    <h1><u>Online sensors</u></h1>
+     <a href="#">Contact</a>
+    <h1><u>Online sensors</u></h1>-->
     <ul>
-        <li draggable [dragScope]="'sensor'" class="list-group-item" *ngFor="let sensor of sensors; index as i"><app-sensor-id-cart></app-sensor-id-cart></li>
+        <li draggable [dragScope]="'sensor'"  class="list-group-item" *ngFor="let sensor of sensors; index as i" [dragData]="sensor">
+            <app-sensor-id-cart></app-sensor-id-cart>
+        </li>
     </ul>
-
 
 
 </div>
 
 <div id="main">
-    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; My sensors</span>
-    <p>angular works</p>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="nav navbar-nav">
+                <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#8694; My sensors</span>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="maincontent">
+        <app-log-window></app-log-window>
 
-    <div   droppable [dropScope]="'sensor'" >
-        <p >Drop items here</p>
+
     </div>
 
+</div>

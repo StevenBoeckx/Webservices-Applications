@@ -1,8 +1,17 @@
-ul{
+.sidenav ul{
     padding-left: 10px;
+    padding-right: 10px;
     display: block;
     list-style-type: none;
     transition: 0.3s;
+}
+.sidenav li{
+    margin-top: 10px;
+
+}
+.maincontent{
+   margin: 10px;
+
 }
 h1{
 
