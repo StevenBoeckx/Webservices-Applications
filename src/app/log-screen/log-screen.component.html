@@ -1,8 +1,16 @@
-<div droppable (onDrop)="onItemDrop($event)" [dropScope]="'sensor'" *ngIf="numberOfsensors==0"
-     style="align-content: center">
-    <h1 style="padding: 50px 0px 50px 0px; width:100%;text-align: center;">Drag a sensor from the SIDE in to Here.</h1>
-</div>
-<p>
+<div droppable (onDrop)="onItemDrop($event)" [dropScope]="'sensor'">
+    <div *ngIf="numberOfsensors==0" style="align-content: center">
+        <h1 style="padding: 50px 0px 50px 0px; width:100%;text-align: center;">Drag a sensor from the SIDE in to
+            here.</h1>
+    </div>
+    <div *ngIf="numberOfsensors!=0">
 
-    <ng-content></ng-content>
-</p>
+        <canvas baseChart
+                [data]="lineChartData"
+                [labels]="lineChartLabels"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+    </div>
+    >
+</div>

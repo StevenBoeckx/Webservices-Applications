@@ -23,12 +23,18 @@ export class LogWindowComponent implements OnInit {
     }
 
     addtab() {
-        this.tabs.push('newTab');
+        this.tabs.push('Log' + (this.tabs.length + 1) as string );
+        this.activetab = this.tabs.length - 1;
         // console.log('clicked');
         // console.log('clicked');
     }
 
-    changeTabName(newtabname) {
-        this.tabs[this.activetab] = newtabname;
+
+    Isactive(currentindex) {
+        if (this.activetab === currentindex) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

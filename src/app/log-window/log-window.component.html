@@ -6,14 +6,9 @@
             <li (click)="addtab()"><a>+ add Tab</a></li>
         </ul>
     </nav>
-    <div>
-        <p style="float:left">change {{tabs[activetab]}} to: </p>
-        <input type=text class="form-control" #newtabname>
-        <button class="btn btn-primary" (click)="changeTabName(newtabname.value)">Change</button>
-    </div >
 
     <div *ngFor="let tab of tabs; index as x">
-        <app-log-screen  *ngIf="activetab == x" >{{x}}</app-log-screen>
+        <app-log-screen  [ngStyle]="{'display': activetab===x?'block':'none'}" >{{x}}</app-log-screen>
     </div>
 
 </div>
