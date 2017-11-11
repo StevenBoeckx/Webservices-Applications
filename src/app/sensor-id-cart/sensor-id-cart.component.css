@@ -1,0 +1,29 @@
+.post-container {
+    overflow: auto
+}
+.post-thumb {
+    float: left
+}
+.post-thumb img {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    user-drag: none;
+    -webkit-touch-callout: none;
+    display: block
+}
+.post-content {
+    margin-left: 100px
+}
+.post-title {
+    font-weight: bold;
+    font-size: 200%
+}
+.alert {
+    margin-bottom: 1px;
+    height: 30px;
+    line-height:30px;
+    padding:0px 15px;
+}

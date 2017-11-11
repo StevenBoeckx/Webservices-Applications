@@ -1,11 +1,26 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<p>angular works</p>
-<ul>
-    <li draggable  [dragScope]="'default-css'" class="list-group-item">Coffee</li>
-    <li draggable >Tea</li>
-    <li draggable >Milk</li>
 
-</ul>
-<div droppable>
-    <p>Drop items here</p>
+<div id="mySidenav" class="sidenav">
+
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">close tab &times;</a>
+    <!--<a href="#">About</a>
+     <a href="#">Services</a>
+     <a href="#">Clients</a>
+     <a href="#">Contact</a> -->
+    <h1><u>Online sensors</u></h1>
+    <ul>
+        <li draggable [dragScope]="'sensor'" class="list-group-item" *ngFor="let sensor of sensors; index as i"><app-sensor-id-cart></app-sensor-id-cart></li>
+    </ul>
+
+
+
 </div>
+
+<div id="main">
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; My sensors</span>
+    <p>angular works</p>
+
+    <div   droppable [dropScope]="'sensor'" >
+        <p >Drop items here</p>
+    </div>
+
