@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    sensors = [ 1 , 2 , 3 , 4 ];
+    sensors = [ 1 , 4 , 23 , 40 ];
   title = 'app';
 }

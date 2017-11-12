@@ -10,7 +10,7 @@
     <h1><u>Online sensors</u></h1>-->
     <ul>
         <li draggable [dragScope]="'sensor'"  class="list-group-item" *ngFor="let sensor of sensors; index as i" [dragData]="sensor">
-            <app-sensor-id-cart></app-sensor-id-cart>
+            <app-sensor-id-cart [ID]="sensor"></app-sensor-id-cart>
         </li>
     </ul>
 
