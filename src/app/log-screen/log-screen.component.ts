@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 
 @Component({
     selector: 'app-log-screen',
@@ -7,12 +7,10 @@ import {Component, OnInit} from '@angular/core';
 })
 export class LogScreenComponent implements OnInit {
 
+    @ViewChild('baseChart') chart;
     numberOfsensors = 0;
     idSensors = [];
-    lineChartData = [
-        [65, 59, 80, 81, 56, 55, 40],
-        [28, 48, 40, 19, 86, 27, 90]
-    ];
+    lineChartData = [];
     lineChartLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
     lineChartType = 'line';
 
@@ -22,10 +20,29 @@ export class LogScreenComponent implements OnInit {
     ngOnInit() {
     }
 
-    onItemDrop(sensor: any) {
-        this.numberOfsensors++;
-        this.idSensors.push(sensor.dragData);
+    SensoralreadyDisplayed(obj) {
+        let i = this.idSensors.length;
+        while (i--) {
+            if (this.idSensors[i] === obj) {
+                return false;
+            }
+        }
+        return true;
+    }
 
+    onItemDrop(sensor: any) {
+        if (this.SensoralreadyDisplayed(sensor.dragData)) {
+            this.numberOfsensors++;
+            this.idSensors.push(sensor.dragData);
+            this.lineChartData.push({
+                data: [(Math.random() * 100), 59, (Math.random() * 100), 20, (Math.random() * 100), (Math.random() * 100), 40],
+                label: 'sensor' + (sensor.dragData as string)
+            });
+            if (this.chart !== undefined) {
+                this.chart.ngOnDestroy();
+                this.chart.chart = this.chart.getChartBuilder(this.chart.ctx);
+            }
+        }
     }
 
     chartClicked(e: any) {
@@ -35,5 +52,6 @@ export class LogScreenComponent implements OnInit {
     chartHovered(e: any) {
         console.log(e);
     }
+
 
 }

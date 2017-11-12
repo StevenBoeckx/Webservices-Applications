@@ -5,8 +5,8 @@
     </div>
     <div *ngIf="numberOfsensors!=0">
 
-        <canvas baseChart
-                [data]="lineChartData"
+        <canvas baseChart #baseChart="base-chart"
+                [datasets]="lineChartData"
                 [labels]="lineChartLabels"
                 [chartType]="lineChartType"
                 (chartHover)="chartHovered($event)"
