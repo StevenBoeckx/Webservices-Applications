@@ -1,3 +1,32 @@
-<p>
-  login works!
-</p>
+
+<div class="container">
+  <div class="row main">
+    <div class="panel-heading text-center">
+      <div class="panel-title text-center">
+        <h2 class="title">login</h2>
+        <hr/>
+      </div>
+      <label class="control-label"><b>Email</b></label>
+      <div class="controls">
+        <input type="text"  value="jij@gmail.com" class="input-xlarge" [(ngModel)]="email"  required>
+      </div>
+
+
+      <label class="control-label"><b>Password</b></label>
+
+      <div class="controls">
+        <input type="password" value="secret" class="input-xlarge" [(ngModel)]="password" required>
+      </div>
+
+      <br>
+      <div class="control-group">
+        <!-- Button -->
+        <div class="controls">
+          <button class="btn btn-success" (click)="login()">login</button>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
