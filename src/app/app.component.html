@@ -27,6 +27,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li *ngIf="router.url !== '/signup' && router.url !== '/sensorlog' && auth.isLoggedOut()"><a [routerLink]="'/signup'"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                 <li *ngIf="router.url !== '/login' && router.url !== '/sensorlog' && auth.isLoggedOut()"><a [routerLink]="'/login'"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li *ngIf="auth.isLoggedIn()" (click)="auth.logout()"><a [routerLink]="'/'">Logout</a></li>
             </ul>
         </div>
     </nav>

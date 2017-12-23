@@ -16,8 +16,10 @@ export class AuthService {
             email: email,
             password: password
         }), {headers: new HttpHeaders().set('content-Type', 'application/json')})
-            .subscribe(this.setSession,
-                this.error);
+            .subscribe(
+                (authResult) => this.setSession(authResult),
+                (error) => this.error
+            );
 
     }
 
