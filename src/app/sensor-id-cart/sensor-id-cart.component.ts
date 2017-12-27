@@ -6,12 +6,11 @@ import {Component, OnInit, Input} from '@angular/core';
     styleUrls: ['./sensor-id-cart.component.css']
 })
 export class SensorIdCartComponent implements OnInit {
-    @Input() ID: number;
+    @Input() ID: {sensorID: string, sensortype: string , sensordata: number, batteryPercentage: number};
     lastUpdated = 25;
     batterylevel = 50;
     statusUpdating;
     statusBattery;
-
     constructor() {
     }
 
@@ -27,10 +26,10 @@ export class SensorIdCartComponent implements OnInit {
             this.statusUpdating = 'alert alert-success';
         }
 
-        if (this.batterylevel > 30) {
+        if (this.ID.batteryPercentage > 30) {
             this.statusBattery = 'alert alert-success';
         }
-        else if (this.batterylevel > 10 && this.batterylevel < 30) {
+        else if (this.ID.batteryPercentage > 10 && this.ID.batteryPercentage < 30) {
 
             this.statusBattery = 'alert alert-warning';
         }
