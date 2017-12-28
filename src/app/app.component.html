@@ -10,7 +10,7 @@
      <a href="#">Contact</a>
     <h1><u>Online sensors</u></h1>-->
     <ul>
-        <li draggable [dragScope]="'sensor'"  class="list-group-item" *ngFor="let sensor of sensors; index as i" [dragData]="sensor.sensorID">
+        <li draggable [dragScope]="'sensor'"  class="list-group-item" *ngFor="let sensor of sensors; index as i" [dragData]="sensor">
             <app-sensor-id-cart [ID]="sensor"></app-sensor-id-cart>
         </li>
     </ul>
@@ -22,13 +22,13 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="nav navbar-nav">
-                <span *ngIf="router.url == '/sensorLog' && auth.isLoggedIn()" style="font-size:30px;cursor:pointer" onclick="openNav()">&#8694; My sensors</span>
+                <span *ngIf="router.url == '/sensorLog' && auth.isLoggedIn()" style="font-size:30px;cursor:pointer" (click)="getAvailableSensors()" onclick="openNav()">&#8694; My sensors</span>
                 <span *ngIf="router.url == '/login' || router.url == '/signup'" style="font-size:30px;cursor:pointer"  [routerLink]="'/'">Home</span>
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <li *ngIf="router.url !== '/signup' && router.url !== '/sensorlog' && auth.isLoggedOut()"><a [routerLink]="'/signup'"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                 <li *ngIf="router.url !== '/login' && router.url !== '/sensorlog' && auth.isLoggedOut()"><a [routerLink]="'/login'"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                <li *ngIf="auth.isLoggedIn()" (click)="auth.logout()"><a [routerLink]="'/'">Logout</a></li>
+                <li *ngIf="auth.isLoggedIn()" (click)="auth.logout()"><a [routerLink]="'/'" onclick="closeNav()">Logout</a></li>
             </ul>
         </div>
     </nav>

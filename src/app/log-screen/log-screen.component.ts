@@ -9,6 +9,7 @@ export class LogScreenComponent implements OnInit {
 
     @ViewChild('baseChart') chart;
     numberOfsensors = 0;
+    Sensors : {sensorID: string, sensortype: string , sensordata: number, batteryPercentage: number}[] = [] ;
     idSensors = [];
     lineChartData = [];
     lineChartLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
@@ -23,7 +24,7 @@ export class LogScreenComponent implements OnInit {
     SensoralreadyDisplayed(obj) {
         let i = this.idSensors.length;
         while (i--) {
-            if (this.idSensors[i] === obj) {
+            if (this.Sensors[i] === obj) {
                 return false;
             }
         }
@@ -33,10 +34,12 @@ export class LogScreenComponent implements OnInit {
     onItemDrop(sensor: any) {
         if (this.SensoralreadyDisplayed(sensor.dragData)) {
             this.numberOfsensors++;
-            this.idSensors.push(sensor.dragData);
+            //this.idSensors.push(sensor.dragData);
+            this.Sensors.push(sensor.dragData);
+            console.log(this.Sensors);
             this.lineChartData.push({
                 data: [(Math.random() * 100), 59, (Math.random() * 100), 20, (Math.random() * 100), (Math.random() * 100), 40],
-                label: 'sensor' + (sensor.dragData as string)
+                label: 'sensor ' + (sensor.dragData.sensorID as string)
             });
             if (this.chart !== undefined) {
                 this.chart.ngOnDestroy();

@@ -5,12 +5,55 @@
     </div>
     <div *ngIf="numberOfsensors!=0">
 
-        <canvas baseChart #baseChart="base-chart"
-                [datasets]="lineChartData"
-                [labels]="lineChartLabels"
-                [chartType]="lineChartType"
-                (chartHover)="chartHovered($event)"
-                (chartClick)="chartClicked($event)"></canvas>
-    </div>
+        <div class="container" style="clear: both;">
+            <div style=" width: 50%; height:50%;float: left; margin: 20px;">
+                <canvas baseChart #baseChart="base-chart"
+                        [datasets]="lineChartData"
+                        [labels]="lineChartLabels"
+                        [chartType]="lineChartType"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas>
+            </div>
+            <div style="width: 30%; height:40%;float: right;margin: 4%;">
+                <h2>Sensors</h2>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>sensorID</th>
+                        <th>sensortype</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let sensor of Sensors;">
+                        <td>{{sensor.sensorID}}</td>
+                        <td>{{sensor.sensortype}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="container">
+            <h2>Full overview</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>sensorID</th>
+                    <th>sensortype</th>
+                    <th>sensordata</th>
+                    <th>batteryPercentage</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let sensor of Sensors;">
+                    <td>{{sensor.sensorID}}</td>
+                    <td>{{sensor.sensortype}}</td>
+                    <td>{{sensor.sensordata}}</td>
+                    <td>{{sensor.batteryPercentage}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 
+    </div>
 </div>
+
