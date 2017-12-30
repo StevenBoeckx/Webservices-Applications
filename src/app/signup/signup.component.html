@@ -7,32 +7,30 @@
             </div>
 
 
-            <form action="/signup" method="post">
                     <label class="control-label"><b>Name</b></label>
                     <div class="controls">
-                        <input type="text" placeholder="Enter name" class="input-xlarge" name="name" required>
+                        <input type="text" placeholder="Enter name" class="input-xlarge" [(ngModel)]="name" required>
                     </div>
 
                 <label class="control-label"><b>Email</b></label>
                 <div class="controls">
-                    <input type="text" placeholder="Enter Email" class="input-xlarge" name="email" required>
+                    <input type="text" placeholder="Enter Email" class="input-xlarge" [(ngModel)]="email" required>
                 </div>
 
 
                 <label class="control-label"><b>Password</b></label>
 
                 <div class="controls">
-                    <input type="password" placeholder="Enter Password" class="input-xlarge" name="psw" required>
+                    <input type="password" placeholder="Enter Password" class="input-xlarge" [(ngModel)]="password" required>
                 </div>
 
                 <br>
                 <div class="control-group">
                     <!-- Button -->
                     <div class="controls">
-                        <button class="btn btn-success" type="submit">Sign Up</button>
+                        <button class="btn btn-success" (click)="signupNewuser()">Sign Up</button>
                     </div>
                 </div>
-            </form>
 
         </div>
     </div>
