@@ -15,6 +15,7 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {TokenInterceptor} from './token.interceptor';
 import {FormsModule} from "@angular/forms";
 import {AuthService} from "./auth.service";
+import { SensDataManagementComponent } from './sens-data-management/sens-data-management.component';
 
 const appRoutes: Routes = [{
     path: '', component: HomeComponent
@@ -22,6 +23,7 @@ const appRoutes: Routes = [{
     {path: 'signup', component: SignupComponent},
     {path: 'login', component: LoginComponent},
     {path: 'sensorLog', component: LogWindowComponent},
+    {path: 'sensormanagement', component: SensDataManagementComponent},
 ];
 
 @NgModule({
@@ -33,6 +35,7 @@ const appRoutes: Routes = [{
         HomeComponent,
         LoginComponent,
         SignupComponent,
+        SensDataManagementComponent,
     ],
     imports: [
         BrowserModule,

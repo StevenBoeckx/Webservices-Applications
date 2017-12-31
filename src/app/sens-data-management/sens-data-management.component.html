@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>Full overview</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>sensorID</th>
+      <th>sensortype</th>
+      <th>sensordata</th>
+      <th>batteryPercentage</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let sensor of sensors;">
+      <td>{{sensor.id}}</td>
+      <td>{{sensor.sensorID}}</td>
+      <td>{{sensor.sensortype}}</td>
+      <td>{{sensor.sensordata}}</td>
+      <td>{{sensor.batteryPercentage}}</td>
+      <td><button  class="closebtn" (click)="deletedata(sensor.id)">x</button></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input [(ngModel)]="newSensordata.sensorID"></td>
+      <td><input [(ngModel)]="newSensordata.sensortype"></td>
+      <td><input [(ngModel)]="newSensordata.sensordata"></td>
+      <td><input [(ngModel)]="newSensordata.batteryPercentage"></td>
+      <td><button  class="btn" (click)="adddata()">addnewdata</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
