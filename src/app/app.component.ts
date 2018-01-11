@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from './auth.service';
 import {HttpClient, HttpHeaders,HttpErrorResponse} from '@angular/common/http';
+import {globalvars} from "./globalvars.dev";
 
 
 @Component({
@@ -21,7 +22,7 @@ export class AppComponent {
     getAvailableSensors()
     {
         console.log("gettingsensordata");
-        this.http.get('http://localhost/api/sensors', {headers: new HttpHeaders().set('content-Type', 'application/json')})
+        this.http.get(globalvars.Url +'/api/sensors', {headers: new HttpHeaders().set('content-Type', 'application/json')})
             .subscribe(
             (data) => {
                 //console.log(data);

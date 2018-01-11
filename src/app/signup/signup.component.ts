@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {AuthService} from '../auth.service';
+import {globalvars} from "../globalvars.dev";
 
 @Component({
   selector: 'app-signup',
@@ -19,7 +20,7 @@ export class SignupComponent implements OnInit {
   }
   signupNewuser()
   {
-  this.http.post('http://localhost/api/signup'
+  this.http.post(globalvars.Url +'/api/signup'
           , JSON.stringify({email: this.email , password: this.password, name:this.name}), {headers: new HttpHeaders().set('content-Type', 'application/json')}
       ).subscribe(
           (data) => {

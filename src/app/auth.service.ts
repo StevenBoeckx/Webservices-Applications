@@ -3,6 +3,7 @@ import * as moment from 'moment';
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from "@angular/router";
+import {globalvars} from "./globalvars.dev";
 
 @Injectable()
 export class AuthService {
@@ -13,7 +14,7 @@ export class AuthService {
     RedirectPath: string;
     login(email: string, password: string, correctRedirectPath: string) {
       this.RedirectPath = correctRedirectPath;
-        return this.http.post('http://localhost/api/login', JSON.stringify({
+        return this.http.post(globalvars.Url +'/api/login', JSON.stringify({
             email: email,
             password: password
         }), {headers: new HttpHeaders().set('content-Type', 'application/json')})
