@@ -48,7 +48,7 @@ export class SensDataManagementComponent implements OnInit {
 
     deletedata(sensorid: number) {
         console.log("deletedata" + sensorid);
-        this.http.delete('http://localhost/api/admindatamanagement/' + sensorid)
+        this.http.delete(globalvars.Url + '/api/admindatamanagement/' + sensorid)
             .subscribe(
                 (data) => {
                     //console.log(data);
@@ -64,7 +64,7 @@ export class SensDataManagementComponent implements OnInit {
     }
 
     adddata() {
-        this.http.post('http://localhost/api/admindatamanagement', JSON.stringify(
+        this.http.post(globalvars.Url + '/api/admindatamanagement', JSON.stringify(
             this.newSensordata
         ), {headers: new HttpHeaders().set('content-Type', 'application/json')})
             .subscribe(
