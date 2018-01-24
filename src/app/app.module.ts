@@ -24,6 +24,8 @@ const appRoutes: Routes = [{
     {path: 'login', component: LoginComponent},
     {path: 'sensorLog', component: LogWindowComponent},
     {path: 'sensormanagement', component: SensDataManagementComponent},
+    {path: 'sensormanagement', component: SensDataManagementComponent},
+    {path: '**', component: HomeComponent},
 ];
 
 @NgModule({
